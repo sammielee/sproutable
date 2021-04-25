@@ -7,6 +7,14 @@
 		{
 			"header" : "Compost is cool!",
 			"body" : "Worms cool. Dirt cool. Scrap cool. If you compost, you'll be cool too!"
+		},
+		{
+			"header" : "Buy local!",
+			"body" : "Fresher. Less packaging. Less travel. Hit up your local farmers' market today!"
+		},
+		{
+			"header" : "Save the turtles!",
+			"body" : "Be like VSCO girls and say goodbye to one-use plastic!"
 		}
 	]
 }

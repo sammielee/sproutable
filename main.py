@@ -16,8 +16,9 @@ def root():
 def add_user():
     un = request.form['un']
     user = {
-    'un': un,
-        'plants': []
+        'un': un,
+        'plants': [],
+        'water_times': []
     }
     users.append(user)
 

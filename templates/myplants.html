@@ -1,3 +1,16 @@
 <!doctype HTML>
-<HTML>
-</HTML>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Sproutable</title>
+	</head>
+
+	<body>
+		<h1>Your Plants</h1>
+
+		{% for key, value in form_data.items() %}
+		<p>Your {{key}} is {{value}}!</p>
+		{% endfor %}
+	</body>
+</html>

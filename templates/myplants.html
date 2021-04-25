@@ -8,9 +8,19 @@
 
 	<body>
 		<h1>Your Plants</h1>
-
+		<form class="flex-col">
+			<input class="plant-search" type="text" placeholder="Find a plant...">
+			<button class="search-btn" type="submit">Search</button>
+		</form> 
 		{% for key, value in form_data.items() %}
 		<p>Your {{key}} is {{value}}!</p>
 		{% endfor %}
+
+		<!--nav bar -->
+		<nav>
+			<a href="/home.html"> <span class="home-filled-btn icon"> </span> Home </a>
+			<a href="explore.html"> <span class="explore-outlined-btn icon"> </span> Explore </a>
+			<a href="myplants.html"> <span class="myplants-outlined-btn icon"> </span> My Plants </a>
+		</nav> 
 	</body>
 </html>

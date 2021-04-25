@@ -1,4 +1,7 @@
 # Temporary "database"
 
 
-accounts = {}
+from collections import defaultdict
+
+
+accounts = defaultdict(None)

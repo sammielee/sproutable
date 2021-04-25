@@ -49,7 +49,7 @@ a:hover {
 	background-image: url("icons/home-filled.svg");
 }
 
-.home-outlined-btm {
+.home-outlined-btn {
 	background-image: url("icons/home-outlined.svg");
 }
 
@@ -80,6 +80,10 @@ a:hover {
 	flex-direction: column;
 }
 
+.wrap {
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
 /****** default page layout ********/
 
 /* header for title and back button */
@@ -107,7 +111,7 @@ a:hover {
 }
 
 .header .title {
-	font-weight: 600;
+	font-weight: 700;
 	font-size: 1.5rem;
 	color: var(--darker-green);
 	text-align: center;
@@ -125,6 +129,7 @@ main {
 	flex: 1 1;
 	overflow: auto;
 	padding: 0 1rem;
+	overflow: auto;
 }
 
 .page {
@@ -132,6 +137,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	flex: 1 1;
+	overflow: auto;
 }
 
 
@@ -153,11 +159,10 @@ nav > * {
 	align-items: center;
 	justify-content: center;
 	flex-basis: 50%;
-<<<<<<< HEAD
+
 	font-size: .8rem;
-=======
+
 	font-size: .4rem;
->>>>>>> 54564efdb735d7c2fa4ec36b3150f4099e05c79f
 }
 
 nav > * > * {
@@ -210,5 +215,28 @@ input[type=submit] {
 	text-align: center;
 }
 
+/********* explore page layout **********/
+.plant-search {
+	padding: .5rem 1rem;
+	border: 2px solid var(--light-green);
+	float: left;
+	width: 100%;
+}
 
+.search-btn {
+	float: left;
+	width: 20%;
+	border-radius: 0.5rem;
+	border: none;
+	font-weight: 600;
+	font-size: .8rem;
+	min-width: 8rem;
+	padding: .5rem 1rem;
+	background: var(--dark-green);
+	color: white;
+	text-align: center;
+}
 
+tr, td {
+	padding: .3rem;
+}

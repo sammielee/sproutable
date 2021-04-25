@@ -83,6 +83,18 @@ def explore():
     return render_template('explore.html')
 
 
+@app.route('/monstera-profile.html')
+def monstera():
+    if request.remote_addr not in logs:
+        return ERROR_MESSAGE
+
+    logs[request.remote_addr].log_time()
+    
+    if logs[request.remote_addr].is_overdue():
+        return root()
+
+    return render_template('monstera-profile.html')
+
 
 if __name__ == '__main__':
     try:

@@ -1,12 +1,12 @@
 # Import Flask
 from flask import Flask, render_template, request
 from data import greentips
+import data.db as db
 
 
 # Create the Flask App object
 app = Flask(__name__, template_folder='templates', static_folder='public')
 
-users = []
 
 # When the default html page is requested
 @app.route('/')
@@ -14,23 +14,21 @@ users = []
 def root():
     return render_template('login.html')
 
-@app.route('/login', methods=['POST'])
-def add_user():
-    un = request.form['un']
-    user = {
-        'un': un,
-        'plants': [],
-        'water_times': []
-    }
-    users.append(user)
 
-
+# /login will send the form to this URL
 @app.route('/home', methods=['POST', 'GET'])
 def data():
     if request.method == 'GET':
-        return 'Oh no error uwu'
+        return 'Oh no error uwu. You must log in at /login :)'
+
     if request.method == 'POST':
         form_data = request.form
+
+        # Create new user account
+        if not db.data.has_account_by_name(form_data['acctname']):
+            acct = db.Account(form_data['acctname'])
+            db.data.add_account(acct)
+            db.data.write_file()
 
         tip = greentips.get_random_tip()
 
@@ -41,5 +39,11 @@ def data():
         )
 
 
+
+
 if __name__ == '__main__':
+    try:
+        db.data.read_file()
+    except:
+        db.data.write_file()
     app.run()

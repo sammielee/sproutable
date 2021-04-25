@@ -22,24 +22,41 @@ class Account:
         self._plants[plant.get_name()] = plant
 
     def remove_plant(self, plant):
-        assert type(plant) == Plant, 'Must be type Plant'
+        assert type(plant) == Plant, 'Must be type Plant.'
         if plant.get_name() in self._plants:
             del self._plants[plant.get_name()]
 
     def __contains__(self, plant):
-        assert type(plant) == Plant, 'Must by type Plant'
+        assert type(plant) == Plant, 'Must by type Plant.'
         return plant.get_name() in self._plants
 
-    def to_dict(self):
+    @staticmethod
+    def to_dict(account):
         """
         Converts the entire class into a dictionary representation.
         """
 
+        assert type(account) == Account, 'Must be type Account.'
         temp = {
-            'username' : self._username,
-            'plants' : [p.to_dict for p in self._plants.values()]
+            'username' : account._username,
+            'plants' : [p.to_dict for p in account._plants.values()]
         }
         return temp
+
+    @staticmethod
+    def from_dict(d):
+        """
+        Converts an applicable dictionary into an Account object.
+        """
+    
+        try:
+            acct = Account(d['username'])
+            for plant_d in d['plants']:
+                acct.add_plant(Plant(plant_d))
+        except e:
+            raise e
+        return acct
+        
         
 
 class Plant:
@@ -70,11 +87,13 @@ class Plant:
     def get_data_registered(self):
         return self._date_registered
 
-    def to_dict(self):
+    @staticmethod
+    def to_dict(plant):
         """
         Converts the entire class into a dictionary representation.
         """
 
+        assert type(plant) == Plant, 'Must be type Plant.'
         temp = {
             'name' : self._name,
             'type' : self._type,
@@ -82,6 +101,21 @@ class Plant:
             'date registered' : self._date_registered
         }
         return temp
+
+    @staticmethod
+    def from_dict(d):
+        """
+        Converts an applicable dictionary into a Plant object.
+        """
+
+        try:
+            plant = Plant(d['name'], d['type'])
+            plant._last_watered = d['last watered']
+            plant._date_registered = d['date registered']
+        except e:
+            print(e)
+            raise e
+        return plant
 
 
 class AccountDatabase:
@@ -91,9 +125,10 @@ class AccountDatabase:
 
     record = 'data/db_data.json'
 
-    def __init__(self):
+    def __init__(self, record=None):
         # Account._name (str) : Account (Account)
         self._data = {}
+        self._record = record if record != None else AccountDatabase.record
 
     def add_account(self, account):
         assert type(account) == Account, 'Must be type Account.'
@@ -108,26 +143,22 @@ class AccountDatabase:
         assert type(account) == Account, 'Must be type Account.'
         return account.get_username() in self._data
     
-    def has_account_by_name(acctname):
+    def has_account_by_name(self, acctname):
         return acctname in self._data
 
-    def get_account_by_name(acctname):
+    def get_account_by_name(self, acctname):
         return self._data.get(acctname, '')
 
-    def write_file(fname=record):
-        with open(fname, 'w') as f:
-            json.dump(fname, f)
+    def remove_account_by_name(self, acctname):
+        del self._data[acctname]
 
-    def read_file(fname=record):
-        data = {}
-        with open(fname, 'r') as f:
-            data = json.load(f)
-        return data
+    def write_file(self):
+        with open(self._record, 'w') as f:
+            json.dump(self._data, f, default=lambda o : Account.to_dict(o))
+
+    def read_file(self):
+        with open(self._record, 'r') as f:
+            self._data = json.load(f)
 
 
-if __name__ == '__main__':
-    plant_a = Plant('bob', 'pine tree')
-    print(plant_a.to_dict())
-    plant_a.water()
-    print(plant_a.to_dict())
-
+data = AccountDatabase()

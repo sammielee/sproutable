@@ -1,0 +1,4 @@
+# Temporary "database"
+
+
+accounts = {}

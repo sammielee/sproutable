@@ -1,22 +1,30 @@
 
 /* source sans pro */
 @font-face {
-	font-family: "Source-Sans-Pro";
+	font-family: "GT-America";
 	font-style: normal;
 	font-weight: 400;
-	src: url('fonts/SourceSansPro-Regular.ttf') format('ttf');
+	src: url('fonts/GT-America-Expanded-Regular.woff2') format('woff2');
 }
 
 :root {
 	--nav-bg: #C6DEB0 ;
 }
 
-* {
-	font-family: Source-Sans-Pro !important;
 
+/************ element defaults ***********/
+
+* {
+	font-family: GT-America !important;
+	
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+}
+
+a[href] {
+	text-decoration: none;
+	color: #0C4A3A, 100%;
 }
 
 /******** button icons *********/
@@ -74,8 +82,8 @@ nav {
 	display: flex;
 	justify-content: space-around;
 	background: var(--nav-bg);
-	border-radius: 24px 24px 0px 0px
-	height: 91px;
+	border-radius: 24px 24px 0px 0px;
+	height: 4rem;
 }
 
 nav > * {

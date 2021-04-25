@@ -19,8 +19,9 @@ def read_file(fname=current_file):
     iterable of smaller dictionaries with 'header' and 'data' keys.
     """
 
+    data = {}
     with open(fname, 'r') as f:
-        info = json.load(f)
+        data = json.load(f)
     return info['root']
 
 
@@ -33,7 +34,4 @@ def get_random_tip(data=info):
 
 
 # Load on import
-try:
-    info = read_file()
-except Exception as e:
-    print(e)
+info = read_file()

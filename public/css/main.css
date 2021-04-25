@@ -48,9 +48,18 @@ h4 {
 	font-size: 1.3rem;
 }
 
+ul {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1;
+	overflow: auto;
+	padding: 0 1.2rem;
+	overflow: auto;
+}
+
 /******** button icons *********/
 
-.home-filled-btn, .explore-filled-btn,.myplants-filled-btn, .home-outlined-btn, .explore-outlined-btn, .myplants-outlined-btn {
+.home-filled-btn, .explore-filled-btn,.myplants-filled-btn, .home-outlined-btn, .explore-outlined-btn, .myplants-outlined-btn, .back-btn {
 	display: flex;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -79,6 +88,12 @@ h4 {
 
 .myplants-outlined-btn {
 	background-image: url("icons/plant-outlined.svg");
+}
+
+.back-btn {
+	background-image: url("icons/back.svg");
+	padding: .3rem;
+	margin-bottom: 0.3rem;
 }
 
 /* pre made styles */
@@ -122,8 +137,8 @@ h4 {
 }
 
 .header .back-btn {
-	width: 2.7rem;
-	height: 2.7rem;
+	width: 2rem;
+	height: 2rem;
 }
 
 .header .title {
@@ -260,7 +275,10 @@ tr, td {
 	align-self: center;
 }
 
-img.gallery {
-	width: 100%;
-	height:auto;
+/******* plant profile ********/
+.profile {
+	align-self: center;
+	width: 50%;
+	height: auto;
+	border-radius: .5rem;
 }

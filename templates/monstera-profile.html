@@ -3,28 +3,45 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Sproutable</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Sproutable Monstera Profile</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+        <link href="../public/css/main.css" rel="stylesheet">
 	</head>
 
 	<body>
-		<h1>Monstera</h1>
+        <div class="page">
+            <div class="header">
+                <div class="bar"> 
+                    <span> <a class="back-btn icon" href="/home.hmtl"> </a></span>
+                    <label class="title"> Monstera </label>
+                    <span> </span>
+                </div>
+            </div>
 
-        <img src="../public/css/images/monstera.jpg" alt="Monstera" width="30%">
+            <main>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <img class="profile" src="../public/css/images/monstera.jpg" alt="Monstera" width="30%">
+
+            <div class="plant-care flex-col"> 
+                <br/>
+                <h4>Species Information</h4>
+                <ul>
+                    <li>Is a cool plant.</li>
+                    <li>Looks like cheese.</li>
+                    <li>Very popular.</li>
+                </ul>
+
+            </div>
 
         <div class="plant-care"> 
 
-            <h3>Species Information</h3>
-            <ul>
-                <li>Is a cool plant.</li>
-                <li>Looks like cheese.</li>
-                <li>Very popular.</li>
-            </ul>
-
-        </div>
-
-        <div class="plant-care"> 
-
-            <h3>Plant Care</h3>
+            <h4>Plant Care</h4>
             <ul>
                 <li>Water regularly.</li>
                 <li>Give daily affirmations.</li>
@@ -33,7 +50,15 @@
 
         </div>
 
-        <button type="button">+ Add to My Plants</button>
-		
+        <button class="dark-btn" type="button">+ Add to My Plants</button>
+		</main>
+
+        <!--nav bar -->
+         <nav>
+            <a href="/home.html"> <span class="home-outlined-btn icon"> </span> Home </a>
+            <a href="explore.html"> <span class="explore-filled-btn icon"> </span> Explore </a>
+            <a href="myplants.html"> <span class="myplants-outlined-btn icon"> </span> My Plants </a>
+        </nav> 
+    </div>
 	</body>
 </html>

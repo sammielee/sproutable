@@ -7,6 +7,9 @@ import data.logging as lg
 import datetime
 
 
+ERROR_MESSAGE = 'Oh no error uwu. You must log in at /login :)'
+
+
 # Temporary: keep track of users and their addresses
 logs = {}
 
@@ -17,19 +20,19 @@ app = Flask(__name__, template_folder='templates', static_folder='public')
 
 # When the default html page is requested
 @app.route('/')
-@app.route('/login')
+@app.route('/login.html')
 def root():
     return render_template('login.html')
 
 
 # /login will send the form to this URL
-@app.route('/home', methods=['POST', 'GET'])
+@app.route('/home.html', methods=['POST', 'GET'])
 def login():
     # Generate green tip
     tip = greentips.get_random_tip()
 
     if request.method == 'GET':
-        if (request.remote_addr in logs and not logs[request.remote_addr].is_overdue()):
+        if request.remote_addr in logs:
             # If timed out remove from logs
             if logs[request.remote_addr].is_overdue():
                 del logs[request.remote_addr]
@@ -44,7 +47,7 @@ def login():
                 tip_body=tip['body']
             )
 
-        return 'Oh no error uwu. You must log in at /login :)'
+        return ERROR_MESSAGE
 
     if request.method == 'POST':
         form_data = request.form
@@ -66,6 +69,18 @@ def login():
         )
 
 
+# Explore page from home
+@app.route('/explore.html')
+def explore():
+    if request.remote_addr not in logs:
+        return ERROR_MESSAGE
+
+    logs[request.remote_addr].log_time()
+    
+    if logs[request.remote_addr].is_overdue():
+        return root()
+
+    return render_template('explore.html')
 
 
 

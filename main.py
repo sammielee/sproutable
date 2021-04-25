@@ -19,6 +19,7 @@ def add_user():
     'un': un,
         'plants': []
     }
+    users.append(user)
 
 
 if __name__ == '__main__':

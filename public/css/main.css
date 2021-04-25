@@ -1,0 +1,96 @@
+
+/* source sans pro */
+@font-face {
+	font-family: "Source-Sans-Pro";
+	font-style: normal;
+	font-weight: 400;
+	src: url('fonts/SourceSansPro-Regular.ttf') format('ttf');
+}
+
+:root {
+	--nav-bg: #C6DEB0 ;
+}
+
+* {
+	font-family: Source-Sans-Pro !important;
+
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/******** button icons *********/
+
+.home-filled-btn, .explore-filled-btn,.myplants-filled-btn, .home-outlined-btn, .explore-outlined-btn, .myplants-outlined-btn {
+	display: flex;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+.home-filled-btn {
+	background-image: url("icons/home-filled.svg");
+}
+
+.home-outlined-btm {
+	background-image: url("icons/home-outlined.svg");
+}
+
+.explore-filled-btn {
+	background-image: url("icons/explore-filled.svg");
+}
+
+.explore-outlined-btn {
+	background-image: url("icons/explore-outlined.svg");
+}
+
+.myplants-filled-btn {
+	background-image: url("icons/plant-filled.svg");
+}
+
+.myplants-outlined-btn {
+	background-image: url("icons/plant-outlined.svg");
+}
+
+/* primary content */
+main {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1;
+	overflow: auto;
+	padding: 0 1rem;
+}
+
+.page {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex: 1 1;
+}
+
+
+/* navbar */
+nav {
+	display: flex;
+	justify-content: space-around;
+	background: var(--nav-bg);
+	border-radius: 24px 24px 0px 0px
+	height: 91px;
+}
+
+nav > * {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-basis: 50%
+	font-size: .8rem;
+}
+
+nav > * > * {
+	height: 1.3rem;
+	width: 1.3rem;
+	margin: .3rem;
+}
+
+}

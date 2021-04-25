@@ -10,22 +10,38 @@
 </head>
 
 <body>
-	<div class="home">
-		<h1>Home</h1>
-		{% for value in form_data.values() %} 
-		<h2>Hi, {{value}}!</h2>
-		{% endfor %}
-	</div>
+	<div class="page">
+		<div class="header">
+			<div class="bar">
+				<span> </span>
+				<label class="title"> Sproutable </label>
+				<span> </span>
+			</div>
+		</div>
+	
+		
+		<main>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			{% for value in form_data.values() %} 
+			<h2>Hi, {{value}}!</h2>
+			{% endfor %}
 
-	<div class="weekly-tasks">
-		<p> Listed here are some weekly tasks like watering. </p>
-	</div>
+			<div class="weekly-tasks flex-col">
+				<h4>This Week's Tasks</h4>
+				<p> Listed here are some weekly tasks like watering. </p>
+			</div>
 
-	<div class="green-tip">
-		<h4> Green tip of the day </h4>
-		<h5> {{tip_header}} </h5>
-		<p> {{tip_body}} </p>
-	</div>
+			<div class="green-tip flex-col">
+				<h4> Green Tip of the Day </h4>
+				<h5> {{tip_header}} </h5>
+				<p> {{tip_body}} </p>
+			</div>
+		</main>
+	
 
 	<!--nav bar -->
 	<nav>
@@ -33,6 +49,7 @@
 		<a href="explore.html"> <span class="explore-outlined-btn icon"> </span> Explore </a>
 		<a href="myplants.html"> <span class="myplants-outlined-btn icon"> </span> My Plants </a>
 	</nav> 
+</div>
 </body>
 
 

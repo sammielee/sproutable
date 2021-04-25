@@ -80,6 +80,44 @@ a:hover {
 	flex-direction: column;
 }
 
+/****** default page layout ********/
+
+/* header for title and back button */
+
+.header {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	background: white;
+	padding: 2rem 1rem .5rem;
+	/* transition: padding .2s ease-out;
+	z-index: 2; */
+}
+
+.header > .bar {
+	display: flex;
+	align-items: center;
+	padding: 1rem 0;
+}
+
+.header .back-btn {
+	width: 2.7rem;
+	height: 2.7rem;
+}
+
+.header .title {
+	font-weight: 600;
+	font-size: 1.5rem;
+	color: var(--darker-green);
+	text-align: center;
+	white-space: nowrap;
+}
+
+.header.shrink {
+	padding: 0 1rem;
+}
+
 /* primary content */
 main {
 	display: flex;
@@ -104,6 +142,9 @@ nav {
 	background: var(--nav-bg);
 	border-radius: 24px 24px 0px 0px;
 	height: 4rem;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }
 
 nav > * {
@@ -111,14 +152,14 @@ nav > * {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	flex-basis: 50%
-	font-size: .4rem;
+	flex-basis: 50%;
+	font-size: .8rem;
 }
 
 nav > * > * {
 	height: 1.3rem;
 	width: 1.3rem;
-	margin: .3rem;
+	margin: 0.2rem;
 }
 
 /**** login layouts *****/

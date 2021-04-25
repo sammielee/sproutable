@@ -12,7 +12,9 @@
 <body>
 	<div class="home">
 		<h1>Home</h1>
-		<h2>Hi, Sammie!</h2>
+		{% for value in form_data.values() %} 
+		<h2>Hi, {{value}}!</h2>
+		{% endfor %}
 	</div>
 
 	<div class="weekly-tasks">

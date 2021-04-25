@@ -24,13 +24,13 @@ def add_user():
     users.append(user)
 
 
-@app.route('/myplants', methods=['POST', 'GET'])
+@app.route('/home', methods=['POST', 'GET'])
 def data():
     if request.method == 'GET':
         return 'Oh no error uwu'
     if request.method == 'POST':
         form_data = request.form
-        return render_template('myplants.html', form_data=form_data)
+        return render_template('home.html', form_data=form_data)
 
 
 if __name__ == '__main__':

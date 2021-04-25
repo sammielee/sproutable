@@ -42,6 +42,12 @@ a:hover {
 	color: #0C4A3A;
 }
 
+h4 {
+	color: var(--dark-green);
+	font-weight: 600;
+	font-size: 1.3rem;
+}
+
 /******** button icons *********/
 
 .home-filled-btn, .explore-filled-btn,.myplants-filled-btn, .home-outlined-btn, .explore-outlined-btn, .myplants-outlined-btn {
@@ -246,4 +252,15 @@ input[type=submit] {
 
 tr, td {
 	padding: .3rem;
+	text-align: center;
+	justify-content: center;
+}
+
+.gallery {
+	align-self: center;
+}
+
+img.gallery {
+	width: 100%;
+	height:auto;
 }

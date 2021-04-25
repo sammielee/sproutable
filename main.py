@@ -19,7 +19,6 @@ app = Flask(__name__, template_folder='templates', static_folder='public')
 
 
 # When the default html page is requested
-@app.route('/')
 @app.route('/login.html')
 def root():
     return render_template('login.html')

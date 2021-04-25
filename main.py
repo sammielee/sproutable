@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 
 
 # Create the Flask App object
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__, template_folder='templates', static_folder='public')
 
 users = []
 

@@ -1,5 +1,6 @@
 # Import Flask
 from flask import Flask, render_template, request
+from data import greentips
 
 
 # Create the Flask App object
@@ -30,7 +31,14 @@ def data():
         return 'Oh no error uwu'
     if request.method == 'POST':
         form_data = request.form
-        return render_template('home.html', form_data=form_data)
+
+        tip = greentips.get_random_tip()
+
+        return render_template('home.html',
+            form_data=form_data,
+            tip_header=tip['header'],
+            tip_body=tip['body']
+        )
 
 
 if __name__ == '__main__':

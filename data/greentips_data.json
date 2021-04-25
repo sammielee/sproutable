@@ -1,0 +1,12 @@
+{
+	"root" : [
+		{
+			"header" : "Try to recycle!",
+			"body" : "Instead of throwing your trash away, see what items you can recycle. Recycled garbage can be transformed and made into new products lessening the amount of resources used to make other products."
+		},
+		{
+			"header" : "Compost is cool!",
+			"body" : "Worms cool. Dirt cool. Scrap cool. If you compost, you'll be cool too!"
+		}
+	]
+}

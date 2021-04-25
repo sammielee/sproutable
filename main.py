@@ -55,8 +55,11 @@ def login():
         # Create new user account
         if not db.data.has_account_by_name(form_data['acctname']):
             acct = db.Account(form_data['acctname'])
+            acct.add_plant(db.Plant('Shrub daddy', 'Monstera'))
+            acct.add_plant(db.Plant('Be-Leaf-er', 'Monstera'))
             db.data.add_account(acct)
             db.data.write_file()
+
 
         # Log the ip address
         if request.remote_addr not in logs:
@@ -110,7 +113,7 @@ def myplants():
     acct = db.data.get_account_by_name(acctname)
 
     return render_template('myplants.html',
-        plist=acct._plants
+        plist=acct._plants.values()
     )
 
 

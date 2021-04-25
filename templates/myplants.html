@@ -3,11 +3,28 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Sproutable</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Sproutable Monstera Profile</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+        <link href="../public/css/main.css" rel="stylesheet">
+
 	</head>
 
 	<body>
-		<h1>Your Plants</h1>
+		<div class="page">
+			<div class="header">
+				<div class="bar">
+					<span> </span>
+					<label class="title"> Your Plants </label>
+					<span> </span>
+				</div>
+			</div>
+		<main>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 
 		{% for p in plist %}
 		<div>
@@ -15,10 +32,13 @@
 			<h3>{{p.get_type()}}</h3>
 			<img src="../public/css/images/monstera.jpg" alt="Monstera">
 
-			<p>Last watered: {{p.get_last_watered}}<br>Registered: {{p.get_date_registered()}}</p>
+			<p>Last watered: {{p.get_last_watered()}}<br>Registered: {{p.get_date_registered()}}</p>
 
 		</div>
 		{% endfor %}
+
+		</main>
+		</div>
 
 
 		<!--

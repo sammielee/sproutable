@@ -39,7 +39,7 @@ class Account:
         assert type(account) == Account, 'Must be type Account.'
         temp = {
             'username' : account._username,
-            'plants' : [p.to_dict for p in account._plants.values()]
+            'plants' : [Plant.to_dict(p) for p in account._plants.values()]
         }
         return temp
 
@@ -95,10 +95,10 @@ class Plant:
 
         assert type(plant) == Plant, 'Must be type Plant.'
         temp = {
-            'name' : self._name,
-            'type' : self._type,
-            'last watered' : self._last_watered,
-            'date registered' : self._date_registered
+            'name' : plant._name,
+            'type' : plant._type,
+            'last watered' : plant._last_watered,
+            'date registered' : plant._date_registered
         }
         return temp
 

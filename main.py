@@ -56,6 +56,7 @@ def login():
         if not db.data.has_account_by_name(form_data['acctname']):
             acct = db.Account(form_data['acctname'])
             acct.add_plant(db.Plant('Shrub daddy', 'Monstera'))
+            acct.add_plant(db.Plant('Be-Leaf-er', 'Monstera'))
             db.data.add_account(acct)
             db.data.write_file()
 

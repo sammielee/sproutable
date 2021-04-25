@@ -22,7 +22,7 @@ def read_file(fname=current_file):
     data = {}
     with open(fname, 'r') as f:
         data = json.load(f)
-    return info['root']
+    return data['root']
 
 
 def get_random_tip(data=info):

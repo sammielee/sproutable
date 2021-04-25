@@ -69,6 +69,17 @@ a:hover {
 	background-image: url("icons/plant-outlined.svg");
 }
 
+/* pre made styles */
+
+.flex {
+	display: flex;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
 /* primary content */
 main {
 	display: flex;
@@ -110,4 +121,49 @@ nav > * > * {
 	margin: .3rem;
 }
 
+/**** login layouts *****/
+
+.login {
+	background: #ffffff;
+	justify-content: center;
+	padding: 3rem;
 }
+
+.login img{
+	height: 100%;
+	width: 100%;
+}
+
+.login > .login-form {
+	flex-basis: 40%;
+}
+
+input[type=text] {
+	color: var(--darker-green);
+	border: 2px solid var(--light-green);
+	padding: .9rem;
+	border-radius: .5rem;
+	margin-bottom: 1rem;
+	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.029);
+}
+
+input[type=submit] {
+	-webkit-appearance: none;
+	margin: 1rem 0;
+}
+
+.dark-btn {
+	border: none;
+	font-weight: bold;
+	font-size: .8rem;
+	min-width: 8rem;
+	align-self: center;
+	border-radius: 1rem;
+	padding: .5rem 1rem;
+	background: var(--dark-green);
+	color: white;
+	text-align: center;
+}
+
+
+

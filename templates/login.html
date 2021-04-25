@@ -3,24 +3,29 @@
 
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="../public/css/main.css" rel="stylesheet">
 		<title>Sproutable</title>
 	</head>
 
 	<body>
+		<div class="login page">
+			<div class="flex-col">
+				<img src="../public/css/images/sproutable.svg" width="100" height="100">
+			</div>
+
+		<!--
 		<h1>Sproutable</h1>
 		<h2>Login Page</h2>
 		<p>Welcome to the login page!</p>
+		-->
 
-		<table>
-		<tr>
-			<td>Username</td>
-			<td>
-				<form action="/home" method="POST">
-				<label for="acctname">
-				<input type="text" id="acctname" name="acctname">
-				<input type="submit" value="login">
-				</form>
-			</td>
-		</tr>
-		</table>
+		<form class="login-form flex-col" action="/home" method="POST">
+			<!-- <label for="acctname"> -->
+				<input type="text" placeholder="username" id="acctname" name="acctname">
+				<input class="dark-btn" type="submit" value="Login">
+		</form>
+			
+</div>
+</body> 
 </html>

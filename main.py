@@ -1,7 +1,14 @@
 # Import Flask
+from collections import defaultdict
 from flask import Flask, render_template, request
 from data import greentips
 import data.db as db
+import data.logging as lg
+import datetime
+
+
+# Temporary: keep track of users and their addresses
+logs = {}
 
 
 # Create the Flask App object
@@ -17,8 +24,26 @@ def root():
 
 # /login will send the form to this URL
 @app.route('/home', methods=['POST', 'GET'])
-def data():
+def login():
+    # Generate green tip
+    tip = greentips.get_random_tip()
+
     if request.method == 'GET':
+        if (request.remote_addr in logs and not logs[request.remote_addr].is_overdue()):
+            # If timed out remove from logs
+            if logs[request.remote_addr].is_overdue():
+                del logs[request.remote_addr]
+                return
+
+            addr = request.remote_addr
+            logs[addr].log_time()
+            
+            return render_template('home.html',
+                form_data={'acctname' : logs[addr].get_username()},
+                tip_header=tip['header'],
+                tip_body=tip['body']
+            )
+
         return 'Oh no error uwu. You must log in at /login :)'
 
     if request.method == 'POST':
@@ -30,7 +55,9 @@ def data():
             db.data.add_account(acct)
             db.data.write_file()
 
-        tip = greentips.get_random_tip()
+        # Log the ip address
+        if request.remote_addr not in logs:
+            logs[request.remote_addr] = lg.Entry(form_data['acctname'])
 
         return render_template('home.html',
             form_data=form_data,
@@ -41,9 +68,10 @@ def data():
 
 
 
+
 if __name__ == '__main__':
     try:
         db.data.read_file()
     except:
         db.data.write_file()
-    app.run()
+    app.run(host='0.0.0.0')

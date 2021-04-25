@@ -9,6 +9,11 @@
 
 :root {
 	--nav-bg: #C6DEB0 ;
+
+	--darker-green: #0C4A3A;
+	--dark-green: #1E7158;
+	--middle-green: #678D58;
+	--light-green: #A6C48A;
 }
 
 
@@ -16,15 +21,19 @@
 
 * {
 	font-family: GT-America !important;
-	
+
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 }
 
-a[href] {
-	text-decoration: none;
-	color: #0C4A3A, 100%;
+a {
+	color: #0C4A3A;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #0C4A3A;
 }
 
 /******** button icons *********/
@@ -92,7 +101,7 @@ nav > * {
 	align-items: center;
 	justify-content: center;
 	flex-basis: 50%
-	font-size: .8rem;
+	font-size: .4rem;
 }
 
 nav > * > * {

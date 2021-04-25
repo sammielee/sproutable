@@ -84,7 +84,7 @@ class Plant:
     def get_last_watered(self):
         return self._last_watered
 
-    def get_data_registered(self):
+    def get_date_registered(self):
         return self._date_registered
 
     @staticmethod
@@ -158,7 +158,8 @@ class AccountDatabase:
 
     def read_file(self):
         with open(self._record, 'r') as f:
-            self._data = json.load(f)
+            temp = json.load(f)
+            self._data = {k : Account.from_dict(v) for k, v in temp.items()}
 
 
 data = AccountDatabase()

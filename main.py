@@ -96,6 +96,25 @@ def monstera():
     return render_template('monstera-profile.html')
 
 
+@app.route('/myplants.html')
+def myplants():
+    if request.remote_addr not in logs:
+        return ERROR_MESSAGE
+
+    logs[request.remote_addr].log_time()
+    
+    if logs[request.remote_addr].is_overdue():
+        return root()
+
+    acctname = logs[request.remote_addr].get_username()
+    acct = db.data.get_account_by_name(acctname)
+
+    return render_template('myplants.html',
+        plist=acct._plants
+    )
+
+
+
 if __name__ == '__main__':
     try:
         db.data.read_file()

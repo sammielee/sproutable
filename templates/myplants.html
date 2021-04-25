@@ -8,13 +8,24 @@
 
 	<body>
 		<h1>Your Plants</h1>
+
+		{% for p in plist %}
+		<div>
+			<h2>{{p.get_name()}}</h2>
+			<h3>{{p.get_type()}}</h3>
+			<img src="../public/css/images/monstera.jpg" alt="Monstera">
+
+			<p>Last watered: {{p.get_last_watered}}<br>Registered: {{p.get_date_registered()}}</p>
+
+		</div>
+		{% endfor %}
+
+
+		<!--
 		<form class="flex-col">
 			<input class="plant-search" type="text" placeholder="Find a plant...">
 			<button class="search-btn" type="submit">Search</button>
-		</form> 
-		{% for key, value in form_data.items() %}
-		<p>Your {{key}} is {{value}}!</p>
-		{% endfor %}
+		-->
 
 		<!--nav bar -->
 		<nav>
